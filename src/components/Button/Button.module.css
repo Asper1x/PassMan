@@ -1,0 +1,13 @@
+.but {
+  border: 1px solid rgb(var(--fogged-color));
+  border-radius: var(--border-radius);
+  padding: 14px;
+  cursor: pointer;
+  line-height: 0;
+  color: rgb(var(--secondary-color), 0.75);
+  transition: all 100ms ease-in;
+}
+
+.but:hover {
+  border: 1px solid rgb(var(--secondary-color));
+}

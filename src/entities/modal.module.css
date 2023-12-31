@@ -1,0 +1,40 @@
+.container {
+  background-color: rgb(var(--background-color));
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  padding: 10px;
+  border-radius: var(--border-radius);
+
+  gap: 0.5rem;
+
+  width: 100%;
+}
+
+.container input {
+  padding: 2px;
+  font-size: medium;
+}
+
+.password {
+  margin-left: 5px;
+
+  outline: none;
+  border: none;
+  background-color: transparent;
+}
+
+.open_container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.open_container span {
+  display: inline-block;
+  text-overflow: ellipsis;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+
+  line-height: 2;
+}

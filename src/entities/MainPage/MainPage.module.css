@@ -1,0 +1,9 @@
+.but {
+  background-color: rgb(var(--background-color));
+  z-index: 3;
+
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin: 0 0.5rem 0.5rem 0;
+}

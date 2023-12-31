@@ -34,7 +34,7 @@ export default function AddWalletModal({ setActive }: IModalProps) {
     <form onSubmit={action} className={styles.container}>
       <div className={styles.open_container}>
         <Button onClick={onOpen}>Open</Button>
-        <span>{selected.split("/").at(-1)}</span>
+        <span>{selected.replaceAll("\\", "/").split("/").at(-1)}</span>
       </div>
 
       <input

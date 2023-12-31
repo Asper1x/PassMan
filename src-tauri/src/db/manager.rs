@@ -1,4 +1,4 @@
-use std::{collections::HashSet, fs::File, path::PathBuf};
+use std::{collections::HashSet, fs::{File, create_dir_all}, path::PathBuf};
 
 use crate::{
     crypto::{CryptoManager, CryptoMngDecrypt, CryptoMngEncrypt},
@@ -75,6 +75,11 @@ impl DBManager {
     }
 
     pub fn create_file(&mut self, password: &[u8], path: PathBuf, algo_type: AlgorithmTypes) {
+        let parent_folder = path.parent().unwrap();
+        if !parent_folder.exists(){
+            create_dir_all(parent_folder).expect("Failed to create directory");
+        }
+
         File::create(&path).expect("Unable to create file");
 
         let crypto_manager = CryptoManager::new(password, None, algo_type).unwrap();

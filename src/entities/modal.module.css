@@ -12,8 +12,20 @@
 }
 
 .container input {
-  padding: 2px;
+  padding: 5px;
   font-size: medium;
+  border: 0;
+  border-radius: 5px;
+}
+
+.container select {
+  border: 0;
+  outline: 0;
+  border-radius: var(--border-radius);
+  appearance: none;
+  padding: 5px;
+  font-size: medium;
+  cursor: pointer;
 }
 
 .password {
@@ -22,6 +34,13 @@
   outline: none;
   border: none;
   background-color: transparent;
+  
+}
+
+.password[type=password]::-ms-reveal,
+.password[type=password]::-ms-clear
+{
+    display: none;
 }
 
 .open_container {

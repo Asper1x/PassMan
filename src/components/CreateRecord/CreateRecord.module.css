@@ -30,3 +30,9 @@
   border: none;
   background-color: transparent;
 }
+
+.password[type=password]::-ms-reveal,
+.password[type=password]::-ms-clear
+{
+    display: none;
+}

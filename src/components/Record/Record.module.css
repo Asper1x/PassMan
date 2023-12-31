@@ -35,7 +35,7 @@
   background-color: rgb(var(--fogged-color));
   border-radius: var(--border-radius);
 
-  width: auto;
+  width: fit-content;
 
   display: inline-block;
   white-space: nowrap;
@@ -46,8 +46,6 @@
 
 .password {
   margin-left: 5px;
-  width: 0;
-  min-width: 100%;
 
   outline: none;
   border: none;

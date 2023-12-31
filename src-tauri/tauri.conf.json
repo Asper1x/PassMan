@@ -40,7 +40,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.asperix.dev",
+      "identifier": "PassMan",
       "longDescription": "",
       "macOS": {
         "entitlements": null,

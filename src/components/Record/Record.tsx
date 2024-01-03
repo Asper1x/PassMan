@@ -12,11 +12,14 @@ export default function RecordComponent({ record }: { record: Record }) {
   const queryClient = useQueryClient();
   const inputRef = useRef<HTMLInputElement>(null);
   const [iconName, setIconName] = useState<"Eye" | "PencilLine">("Eye");
+  const [error, setError] = useState(null);
 
   const nameEdit = (event: React.FormEvent<HTMLSpanElement>) => {
     const newName = event.currentTarget.textContent;
     if (newName && newName.length >= 1)
-      updateRecord(record.id, { ...record, service: newName });
+      updateRecord(record.id, { ...record, service: newName }).catch((err) =>
+        setError(err)
+      );
   };
 
   const passwordEdit = () => {
@@ -28,7 +31,7 @@ export default function RecordComponent({ record }: { record: Record }) {
   };
 
   const deleteRecord = () => {
-    removeRecord(record.id);
+    removeRecord(record.id).catch((err) => setError(err));
   };
 
   const seePassword = () => {
@@ -36,7 +39,10 @@ export default function RecordComponent({ record }: { record: Record }) {
       return;
     }
     if (iconName == "PencilLine") {
-      updateRecord(record.id, { ...record, password: inputRef.current.value });
+      updateRecord(record.id, {
+        ...record,
+        password: inputRef.current.value,
+      }).catch((err) => setError(err));
       queryClient.invalidateQueries({ queryKey: ["main-records"] });
     }
     setIconName("Eye");
@@ -79,6 +85,7 @@ export default function RecordComponent({ record }: { record: Record }) {
           readOnly
         />
       </div>
+      <p className={styles.error}>{error}</p>
       <div className={styles.buttons}>
         <Icon
           name={iconName}

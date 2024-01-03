@@ -8,7 +8,7 @@
   },
   "package": {
     "productName": "pass_mgr",
-    "version": "0.1.3"
+    "version": "0.1.4"
   },
   "tauri": {
     "allowlist": {

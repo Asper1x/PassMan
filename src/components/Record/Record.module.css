@@ -67,3 +67,8 @@
   z-index: 0;
   margin-left: -25px;
 }
+
+.error {
+  margin: 0;
+  color: brown;
+}

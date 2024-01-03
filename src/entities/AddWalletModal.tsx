@@ -10,16 +10,20 @@ import { IModalProps } from "./MainPage/MainPage";
 
 export default function AddWalletModal({ setActive }: IModalProps) {
   const [selected, setSelected] = useState("");
+  const [error, setError] = useState(null);
 
   const action = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const password = event.currentTarget.password.value;
     const algoType = event.currentTarget.selectedAlgorithm.value;
 
-    openFile(password, selected, algoType).then(async () => {
-      await queryClient.invalidateQueries({ queryKey: ["main-records"] });
-      setActive(false);
-    });
+    openFile(password, selected, algoType)
+      .then(async () => {
+        await queryClient.invalidateQueries({ queryKey: ["main-records"] });
+        setActive(false);
+        setError(null);
+      })
+      .catch((er) => setError(er));
   };
 
   const onOpen = () => {
@@ -57,6 +61,8 @@ export default function AddWalletModal({ setActive }: IModalProps) {
       <Button type="submit">
         <Check />
       </Button>
+
+      {error && <p>{error}</p>}
     </form>
   );
 }

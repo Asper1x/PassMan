@@ -26,19 +26,22 @@
   cursor: pointer;
 }
 
+.container p {
+  color: brown;
+  margin: 0;
+}
+
 .password {
   margin-left: 5px;
 
   outline: none;
   border: none;
   background-color: transparent;
-  
 }
 
-.password[type=password]::-ms-reveal,
-.password[type=password]::-ms-clear
-{
-    display: none;
+.password[type="password"]::-ms-reveal,
+.password[type="password"]::-ms-clear {
+  display: none;
 }
 
 .open_container {

@@ -1,6 +1,7 @@
+@import "./font.css";
+
 :root {
-  font-family: Cantarell, Avenir, Helvetica, Arial, sans-serif;
-  src: local("Cantarell"), url(./fonts/Cantarell.otf) format("opentype");
+  font-family: Cantarell;
 
   line-height: 1.5;
   font-weight: 400;

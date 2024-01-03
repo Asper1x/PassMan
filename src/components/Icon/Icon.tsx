@@ -1,21 +1,15 @@
-import { lazy, Suspense } from "react";
-import { LucideProps } from "lucide-react";
-import dynamicIconImports from "lucide-react/dynamicIconImports";
+import { LucideProps, icons } from 'lucide-react';
 
-const fallback = <div style={{ background: "#ddd", width: 24, height: 24 }} />;
+export type IconNames = keyof typeof icons;
 
-interface IconProps extends Omit<LucideProps, "ref"> {
-  name: keyof typeof dynamicIconImports;
+interface IconProps extends Omit<LucideProps, 'ref'> {
+  name: keyof typeof icons;
 }
 
 const Icon = ({ name, ...props }: IconProps) => {
-  const LucideIcon = lazy(dynamicIconImports[name]);
+  const LucideIcon = icons[name];
 
-  return (
-    <Suspense fallback={fallback}>
-      <LucideIcon {...props} />
-    </Suspense>
-  );
+  return <LucideIcon {...props} />;
 };
 
-export default Icon;
+export default Icon;  

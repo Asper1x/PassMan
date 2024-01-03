@@ -11,7 +11,7 @@ const defaultValue = "********";
 export default function RecordComponent({ record }: { record: Record }) {
   const queryClient = useQueryClient();
   const inputRef = useRef<HTMLInputElement>(null);
-  const [iconName, setIconName] = useState<"eye" | "pencil-line">("eye");
+  const [iconName, setIconName] = useState<"Eye" | "PencilLine">("Eye");
 
   const nameEdit = (event: React.FormEvent<HTMLSpanElement>) => {
     const newName = event.currentTarget.textContent;
@@ -24,7 +24,7 @@ export default function RecordComponent({ record }: { record: Record }) {
       return;
     }
 
-    setIconName("pencil-line");
+    setIconName("PencilLine");
   };
 
   const deleteRecord = () => {
@@ -35,11 +35,11 @@ export default function RecordComponent({ record }: { record: Record }) {
     if (!inputRef.current) {
       return;
     }
-    if (iconName == "pencil-line") {
+    if (iconName == "PencilLine") {
       updateRecord(record.id, { ...record, password: inputRef.current.value });
       queryClient.invalidateQueries({ queryKey: ["main-records"] });
     }
-    setIconName("eye");
+    setIconName("Eye");
     if (inputRef.current.type == "text") {
       inputRef.current.type = "password";
       inputRef.current.value = defaultValue;
@@ -72,7 +72,7 @@ export default function RecordComponent({ record }: { record: Record }) {
             if (!inputRef.current) {
               return;
             }
-            setIconName("eye");
+            setIconName("Eye");
             inputRef.current.type = "password";
             inputRef.current.value = defaultValue;
           }}

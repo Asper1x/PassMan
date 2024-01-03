@@ -1,11 +1,11 @@
-import dynamicIconImports from "lucide-react/dynamicIconImports";
+import { IconNames } from "./components/Icon/Icon";
 import AddWalletModal from "./entities/AddWalletModal";
 import NewWalletModal from "./entities/NewWalletModal";
 
 type IModalEntity = {
   label: string;
   name: string;
-  icon: keyof typeof dynamicIconImports;
+  icon: IconNames;
   element: JSX.Element;
 };
 
@@ -13,14 +13,14 @@ export const NavEntities: IModalEntity[] = [
   {
     label: "Add wallet",
     name: "",
-    icon: "folder-open",
+    icon: "FolderOpen",
     //@ts-ignore
     element: <AddWalletModal />,
   },
   {
     label: "New wallet",
     name: "/new",
-    icon: "file-plus-2",
+    icon: "FilePlus2",
     //@ts-ignore
     element: <NewWalletModal />,
   },
